@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ryan Anderson | Resume & Portfolio</title>
+  <meta
+    name="description"
+    content="Ryan Anderson - IT graduate with experience in customer service, retail leadership, pharmacy support, and self-hosted infrastructure."
+  />
+  <style>
+    :root {
+      --bg: #0f172a;
+      --bg-soft: #111c33;
+      --card: #1e293b;
+      --card-2: #162033;
+      --text: #e2e8f0;
+      --muted: #94a3b8;
+      --line: #334155;
+      --accent: #60a5fa;
+      --accent-2: #93c5fd;
+      --max: 980px;
+      --radius: 14px;
+      --shadow: 0 10px 30px rgba(0,0,0,0.20);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      color: var(--accent-2);
+    }
+
+    .container {
+      max-width: var(--max);
+      margin: auto;
+      padding: 32px 20px 50px;
+    }
+
+    .nav-wrap {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(15, 23, 42, 0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(51, 65, 85, 0.7);
+    }
+
+    .nav {
+      max-width: var(--max);
+      margin: auto;
+      padding: 14px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .nav-brand {
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: 0.02em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      color: var(--text);
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.06);
+      padding: 8px 14px;
+      border-radius: 999px;
+      font-size: 0.92rem;
+      transition: 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      background: rgba(96,165,250,0.12);
+      border-color: rgba(96,165,250,0.25);
+      color: #fff;
+    }
+
+    .hero {
+      padding-top: 26px;
+      text-align: center;
+    }
+
+    .hero-card {
+      background: linear-gradient(180deg, rgba(30,41,59,0.95), rgba(22,32,51,0.95));
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 18px;
+      padding: 34px 28px;
+      box-shadow: var(--shadow);
+    }
+
+    h1 {
+      font-size: 2.7rem;
+      margin: 0 0 8px;
+      line-height: 1.1;
+    }
+
+    .subtitle {
+      color: var(--accent-2);
+      font-size: 1.05rem;
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+      color: var(--muted);
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    .contact-row {
+      margin-top: 18px;
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      color: var(--muted);
+      font-size: 0.96rem;
+    }
+
+    .contact-row span,
+    .contact-row a {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.06);
+      padding: 8px 12px;
+      border-radius: 999px;
+    }
+
+    section {
+      margin-top: 34px;
+    }
+
+    .section-card {
+      background: var(--card);
+      border: 1px solid rgba(255,255,255,0.05);
+      border-radius: var(--radius);
+      padding: 24px;
+      box-shadow: var(--shadow);
+    }
+
+    h2 {
+      margin: 0 0 14px;
+      font-size: 1.35rem;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 8px;
+    }
+
+    p {
+      color: var(--muted);
+      margin: 0;
+    }
+
+    .summary {
+      font-size: 1rem;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .skill {
+      background: var(--card-2);
+      border: 1px solid rgba(255,255,255,0.05);
+      padding: 12px 14px;
+      border-radius: 10px;
+      color: #d7e2f0;
+      font-size: 0.95rem;
+    }
+
+    .item-list {
+      display: grid;
+      gap: 16px;
+    }
+
+    .job, .project {
+      padding: 16px;
+      border-radius: 12px;
+      background: var(--card-2);
+      border: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .job-top, .project-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 8px;
+    }
+
+    .job-title, .project-title {
+      font-weight: 700;
+      color: #fff;
+      font-size: 1rem;
+    }
+
+    .job-date {
+      color: var(--muted);
+      font-size: 0.93rem;
+      white-space: nowrap;
+    }
+
+    .job-company {
+      color: var(--accent-2);
+      margin-bottom: 8px;
+      font-size: 0.96rem;
+    }
+
+    ul {
+      margin: 8px 0 0 18px;
+      padding: 0;
+      color: var(--muted);
+    }
+
+    .edu-block {
+      background: var(--card-2);
+      border: 1px solid rgba(255,255,255,0.05);
+      border-radius: 12px;
+      padding: 16px;
+    }
+
+    .tech-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+      gap: 18px;
+      margin-top: 18px;
+    }
+
+    .tech {
+      background: var(--card-2);
+      padding: 16px 12px;
+      border-radius: 12px;
+      text-align: center;
+      font-size: 0.92rem;
+      border: 1px solid rgba(255,255,255,0.05);
+      transition: transform 0.15s ease;
+    }
+
+    .tech:hover {
+      transform: translateY(-2px);
+    }
+
+    .tech img {
+      height: 42px;
+      max-width: 100%;
+      object-fit: contain;
+      margin: 0 auto 10px;
+      display: block;
+    }
+
+    .footer {
+      text-align: center;
+      margin-top: 42px;
+      font-size: 0.85rem;
+      color: #64748b;
+    }
+
+    @media (max-width: 700px) {
+      h1 {
+        font-size: 2.1rem;
+      }
+
+      .skills-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .container {
+        padding: 24px 16px 40px;
+      }
+
+      .hero-card,
+      .section-card {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="nav-wrap">
+    <div class="nav">
+      <div class="nav-brand">Ryan Anderson</div>
+      <div class="nav-links">
+        <a href="#summary">Summary</a>
+        <a href="#skills">Skills</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#education">Education</a>
+        <a href="#tech">Tech</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+
+    <section class="hero" id="top">
+      <div class="hero-card">
+        <h1>Ryan Anderson</h1>
+        <div class="subtitle">IT Graduate • Customer Support • Operations • Web & Systems</div>
+        <p>
+          Detail-oriented and versatile professional with a background in information technology,
+          retail leadership, customer service, and pharmacy operations. Experienced in technical troubleshooting,
+          team support, web projects, and self-hosted systems, with a strong ability to adapt across both
+          technical and customer-facing roles.
+        </p>
+
+        <div class="contact-row" id="contact">
+          <a href="mailto:contact@ryananderson.tech">contact@ryananderson.tech</a>
+          <span>412-925-2963</span>
+          <span>Gibsonia, PA</span>
+          <a href="https://ryananderson.tech" target="_blank" rel="noopener noreferrer">ryananderson.tech</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="summary">
+      <div class="section-card">
+        <h2>Professional Summary</h2>
+        <p class="summary">
+          I bring a combination of technical knowledge and real-world customer service experience.
+          My background includes IT education, web development, Linux-based systems, virtualization,
+          and networking, along with years of hands-on experience in retail, pharmacy support,
+          team supervision, and problem resolution. I am seeking opportunities where I can contribute
+          strong communication, adaptability, organization, and technical ability in either support,
+          operations, administrative, or technology-focused roles.
+        </p>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="section-card">
+        <h2>Core Skills</h2>
+        <div class="skills-grid">
+          <div class="skill">Customer Service & Communication</div>
+          <div class="skill">Team Support & Leadership</div>
+          <div class="skill">Computer Literacy</div>
+          <div class="skill">Microsoft Excel & Word</div>
+          <div class="skill">Windows Server & Linux</div>
+          <div class="skill">Networking & Troubleshooting</div>
+          <div class="skill">HTML, CSS & Basic Web Development</div>
+          <div class="skill">Operational Reliability & Organization</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience">
+      <div class="section-card">
+        <h2>Professional Experience</h2>
+        <div class="item-list">
+
+          <div class="job">
+            <div class="job-top">
+              <div class="job-title">Data Partner</div>
+              <div class="job-date">Nov 2025 – Mar 2026</div>
+            </div>
+            <div class="job-company">TELUS Digital • Remote</div>
+            <ul>
+              <li>Trained and evaluated AI models by annotating data for accuracy, consistency, and alignment with project standards.</li>
+              <li>Provided detailed feedback and quality-focused review to support machine learning improvement efforts.</li>
+              <li>Worked independently in a remote environment while maintaining attention to detail and process consistency.</li>
+            </ul>
+          </div>
+
+          <div class="job">
+            <div class="job-top">
+              <div class="job-title">Lead Service Associate</div>
+              <div class="job-date">Dec 2023 – Jul 2025</div>
+            </div>
+            <div class="job-company">Rite Aid • Allison Park, PA</div>
+            <ul>
+              <li>Supervised store operations and supported efficient daily workflow.</li>
+              <li>Delivered strong customer service while resolving questions and escalations promptly.</li>
+              <li>Helped maintain team coordination, store standards, and front-end operations.</li>
+            </ul>
+          </div>
+
+          <div class="job">
+            <div class="job-top">
+              <div class="job-title">Pharmacy Technician</div>
+              <div class="job-date">Jun 2023 – Dec 2023</div>
+            </div>
+            <div class="job-company">Rite Aid • Gibsonia, PA</div>
+            <ul>
+              <li>Assisted pharmacists with prescription processing and inventory-related tasks.</li>
+              <li>Supported compliance with health, safety, and operational procedures.</li>
+              <li>Worked accurately in a fast-paced, detail-sensitive environment.</li>
+            </ul>
+          </div>
+
+          <div class="job">
+            <div class="job-top">
+              <div class="job-title">Shift Supervisor / Pharmacy Technician</div>
+              <div class="job-date">Apr 2017 – Jun 2023</div>
+            </div>
+            <div class="job-company">Rite Aid • Allison Park, PA</div>
+            <ul>
+              <li>Balanced front-end leadership responsibilities with pharmacy support duties.</li>
+              <li>Managed opening and closing procedures, trained new employees, and addressed customer issues.</li>
+              <li>Built strong experience in operations, accountability, and team support.</li>
+            </ul>
+          </div>
+
+          <div class="job">
+            <div class="job-top">
+              <div class="job-title">Sales Associate</div>
+              <div class="job-date">Nov 2016 – Apr 2017</div>
+            </div>
+            <div class="job-company">Rite Aid • Allison Park, PA</div>
+            <ul>
+              <li>Provided helpful and professional service to customers.</li>
+              <li>Maintained store appearance and supported inventory organization.</li>
+              <li>Contributed to a positive and efficient customer experience.</li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="section-card">
+        <h2>Selected Projects</h2>
+        <div class="item-list">
+
+          <div class="project">
+            <div class="project-top">
+              <div class="project-title">Proxmox Homelab Environment</div>
+            </div>
+            <p>
+              Built and maintained a self-hosted virtualization environment for experimenting with services,
+              infrastructure management, deployment workflows, and system troubleshooting.
+            </p>
+          </div>
+
+          <div class="project">
+            <div class="project-top">
+              <div class="project-title">FreePBX Server</div>
+            </div>
+            <p>
+              Configured and tested a telephony environment with hands-on work in setup, routing,
+              functionality testing, and service administration.
+            </p>
+          </div>
+
+          <div class="project">
+            <div class="project-top">
+              <div class="project-title">SalonU Website</div>
+            </div>
+            <p>
+              Designed and deployed a professional website for a local salon with a focus on visual clarity,
+              usability, and a polished public-facing presentation.
+              <br><br>
+              <a href="https://salonu.style" target="_blank" rel="noopener noreferrer">Visit salonu.style</a>
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section id="education">
+      <div class="section-card">
+        <h2>Education</h2>
+        <div class="edu-block">
+          <div class="job-title">University of Phoenix</div>
+          <div class="job-company">Bachelor of Science in Information Technology</div>
+          <p style="margin-top: 8px;">Graduated December 2023 • Summa Cum Laude</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="tech">
+      <div class="section-card">
+        <h2>Technology & Platforms</h2>
+        <div class="tech-grid">
+
+          <div class="tech">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" alt="Linux logo">
+            Linux
+          </div>
+
+          <div class="tech">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="Docker logo">
+            Docker
+          </div>
+
+          <div class="tech">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nginx/nginx-original.svg" alt="Nginx logo">
+            Nginx
+          </div>
+
+          <div class="tech">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML logo">
+            HTML
+          </div>
+
+          <div class="tech">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS logo">
+            CSS
+          </div>
+
+          <div class="tech">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript logo">
+            JavaScript
+          </div>
+
+          <div class="tech">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cloudflare/cloudflare-original.svg" alt="Cloudflare logo">
+            Cloudflare
+          </div>
+
+          <div class="tech">
+            <img src="https://www.blackrack.eu/wp-content/uploads/2025/08/proxmox_Logo.png" alt="Proxmox logo">
+            Proxmox
+          </div>
+
+          <div class="tech">
+            <img src="https://www.freepbx.org/wp-content/uploads/Sangoma_FreePBX_Logo_RGB_vert-pos-e1588862438350.png" alt="FreePBX logo">
+            FreePBX
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <div class="footer">
+      © <script>document.write(new Date().getFullYear())</script> Ryan Anderson
+    </div>
+
+  </div>
+
+</body>
+</html>
